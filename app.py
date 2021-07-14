@@ -1,5 +1,4 @@
 # libraries
-from fpdf import FPDF
 import random
 import numpy as np
 import pickle
@@ -89,26 +88,7 @@ def getResponse(ints, intents_json):
     for i in list_of_intents:
         if i["tag"] == tag:
             result = random.choice(i["responses"])
-            
-            pdf =  FPDF('p','mm','Letter')
-            pdf.add_page()
-            pdf.set_font('helvetica','',16)
-            
-            
-            
-            lines = []
-            while True:
-                line = result
-                if line:
-                    lines.append(line)
-                else:
-                    break
-            text = '\n'.join(lines)
-            pdf.cell(40,10,text,ln=6)
-            pdf.output('oncr_pdf1.pdf')
-            
-
-        
+          
             
             break
     return result
