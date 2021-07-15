@@ -268,29 +268,11 @@ video:focus {
 }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+
 <script>
 // on input/text enter--------------------------------------------------------------------------------------
 $(document).ready(function(){
 	
-var doc = new jsPDF();	
-function bot(mes1,data1) {	
-
-doc.text(20, 20, mes1);
-
-// Add new page
-doc.addPage();
-doc.text(20, 20, data1);
-
-// Save the PDF
-
-
-doc.save('document.pdf');
-}	
-	
-	
-	
-
 $('.usrInput').on('keyup keypress', function (e) {
 
 	var keyCode = e.keyCode || e.which;
@@ -336,12 +318,12 @@ function send(message) {
                 data: {
                     msg: message,
                 },
-				 headers: {  'Access-Control-Allow-Origin': '/get' },
+				
                 type: "POST",
 		       
                 url: "/get",  // provide your server url address here 
             }).then(function(data) {
-		       bot(message,data)
+		       
 			console.log(data);
                setBotResponse(data);
             });
